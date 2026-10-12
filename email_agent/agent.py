@@ -50,12 +50,13 @@ def instruction_provider(_ctx) -> str:
 
 root_agent = Agent(
     name="email_assistant",
-    model=os.getenv("GEMINI_MODEL", "gemini-3.8-flash"),
+    model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash"),
     description="Reads, searches, answers questions about, and sends emails in the user's Outlook mailbox.",
     instruction=instruction_provider,
     # Retry rate-limit (429) and transient server errors; the Gemini free tier allows only a few requests per minute.
     generate_content_config=types.GenerateContentConfig(
         http_options=types.HttpOptions(
+            timeout=60_000,  # ms; fail instead of hanging if the model is overloaded
             retry_options=types.HttpRetryOptions(
                 attempts=6, initial_delay=5, max_delay=40, http_status_codes=[429, 500, 503, 504]
             )

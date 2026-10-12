@@ -8,7 +8,7 @@ An AI agent built with the **[Google Agent Development Kit (ADK)](https://google
 
 Authentication uses **OAuth 2.0 (device code flow, via MSAL)**, with a bearer-token fallback.
 
-> **Demo video:** _add link here_
+> **Demo video:** [Watch on Google Drive](https://drive.google.com/file/d/1_xNjsbvqk8ZrdVca_BaAW38ACSfzuGJl/view?usp=drive_link)
 
 ---
 
@@ -34,7 +34,7 @@ Authentication uses **OAuth 2.0 (device code flow, via MSAL)**, with a bearer-to
 | Layer | Technology |
 |---|---|
 | Agent framework | Google ADK (`google-adk`), `LlmAgent` with function tools |
-| Model | Gemini (`gemini-3.8-flash` by default, configurable) |
+| Model | Gemini (`gemini-3.5-flash` by default, configurable) |
 | Email service | Microsoft Outlook via Microsoft Graph REST API v1.0 |
 | Authentication | OAuth 2.0 device code flow using MSAL for Python, with a persistent token cache |
 | UI | ADK Dev UI (`adk web`) or terminal (`adk run`) |
@@ -125,7 +125,7 @@ Edit `.env`:
 |---|---|---|
 | `GOOGLE_API_KEY` | yes | Gemini API key |
 | `GOOGLE_GENAI_USE_VERTEXAI` | yes | `FALSE` to use the Gemini API key |
-| `GEMINI_MODEL` | no | Model name, default `gemini-3.8-flash` |
+| `GEMINI_MODEL` | no | Model name, default `gemini-3.5-flash` |
 | `MS_CLIENT_ID` | for OAuth | Client ID of the app used for OAuth (see below) |
 | `MS_TENANT` | for OAuth | `consumers` for personal Outlook.com accounts, `common` or a tenant ID for work/school |
 | `MAIL_FROM` | no | Send as this alias of your mailbox (see [Troubleshooting](#troubleshooting)) |
